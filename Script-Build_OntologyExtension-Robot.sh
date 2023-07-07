@@ -86,12 +86,19 @@ if [ $build -eq 1 ]; then
 
     cd ../../../
 
-    ## Add additional build instructions as exemplified for the core ontology above
-    ## ****************************************************************************
+    ## Build Suchey-Brooks pubic age ontology extension
 
+    cd dependencies/SucheyBrooksPubicAge/
+
+    ./Script-Build_OntologyExtension-Robot.sh -b -c -u
+
+    cd ../../
+
+    
     ## Merge dependencies
 
     robot merge --input dependencies/RDFBones-O/robot/results/rdfbones.owl \
+	  --input dependencies/SucheyBrooksPubicAge/results/sb.owl \
 	  --output results/dependencies.owl
     
     ## Add additional dependencies files as input
@@ -269,17 +276,17 @@ if [ $build -eq 1 ]; then
 
     robot annotate --input results/merged.owl \
 	  --remove-annotations \
-	  --ontology-iri "http://w3id.org/rdfbones/ext/template/latest/template.owl" \
-	  --version-iri "http://w3id.org/rdfbones/ext/template/v0-1/template.owl" \
+	  --ontology-iri "http://w3id.org/rdfbones/ext/phaleron-ae/latest/phaleron-ae.owl" \
+	  --version-iri "http://w3id.org/rdfbones/ext/phaleron-ae/v0-1/phaleron-ae.owl" \
 	  --annotation owl:versionInfo "0.1" \
-	  --language-annotation rdfs:label "RDFBones ontology extension template" en \
-	  --language-annotation rdfs:comment "This is a dummy for an ontology extending the RDFBones core ontology. It is not intended for productivity but to demonstrate how the template for RDFBones ontology extensions works." en \
+	  --language-annotation rdfs:label "Phaleron Biological Project Age Estimation" en \
+	  --language-annotation rdfs:comment "This RDFBones ontology extension is part of the suite of ontology extensions created for and used by the Phaleron Bioarchaeological Project. In order to work properly, it depends on the RDFBones core ontology, the Phaleron Sex Estimation ontology extension and the Suchey Brooks Pubic Age ontology extension. Make sure that these are loaded on your system before starting work with this ontology extension." en \
 	  --annotation dc:creator "Felix Engel" \
 	  --annotation dc:contributor "Stefan Schlager" \
 	  --annotation dc:contributor "Lukas Bender" \
-	  --language-annotation dc:description "Extensions to the RDFBones core ontology are written to implement data structures representing osteological reseearch data in biological anthropology. The RDFBones ontology extension template provides a repository outline to help researchers embarking on the creation of an ontology extension. This output is dummy content proving that the template is operational and demonstrating how it is to be used. Authors of ontology extensions need to replace the dummy content with the information they intend to model in order to receive the desired outcome." en \
-	  --language-annotation dc:title "RDFBones ontology extension template" en \
-	  --output results/template.owl
+	  --language-annotation dc:description "This RDFBones ontology extension implements the routines for estimating age at death from human skeletal remains as employed by the Phaleron Bioarchaeological Project." en \
+	  --language-annotation dc:title "Phaleron Bioarchaeological Project Age Estimation" en \
+	  --output results/phaleron-ae.owl
 
     ## Change annotations to describe your extension and change file name in the final output statement.
     ## *************************************************************************************************
