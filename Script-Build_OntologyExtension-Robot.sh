@@ -132,6 +132,10 @@ if [ $build -eq 1 ]; then
 	  --input results/template_ValueSpecifications.owl \
 	  --output results/merged.owl
 
+    robot merge --input results/template_CategoryLabels.owl \
+	  --input results/template_ValueSpecifications.owl \
+	  --output results/extension.owl
+
 
     ## Create data items
 
@@ -143,6 +147,10 @@ if [ $build -eq 1 ]; then
     robot merge --input results/merged.owl \
 	  --input results/template_DataItems.owl \
 	  --output results/merged.owl
+
+    robot merge --input results/extension.owl \
+	  --input results/template_DataItems.owl \
+	  --output results/extension.owl
     
 
     ## Create data sets
@@ -156,6 +164,10 @@ if [ $build -eq 1 ]; then
 	  --input results/template_DataSets.owl \
 	  --output results/merged.owl
 
+    robot merge --input results/extension.owl \
+	  --input results/template_DataSets.owl \
+	  --output results/extension.owl
+
     
     ## Create assays
 
@@ -167,6 +179,10 @@ if [ $build -eq 1 ]; then
     robot merge --input results/merged.owl \
 	  --input results/template_Assays.owl \
 	  --output results/merged.owl
+
+    robot merge --input results/extension.owl \
+	  --input results/template_Assays.owl \
+	  --output results/extension.owl
 
 
     ## Create data transformations
@@ -204,6 +220,10 @@ if [ $build -eq 1 ]; then
 	  --input results/template_StudyDesignExecutions.owl \
 	  --output results/merged.owl
 
+    robot merge --input results/extension.owl \
+	  --input results/template_StudyDesignExecutions.owl \
+	  --output results/extension.owl
+
 
     ## Create Protocols
 
@@ -228,6 +248,10 @@ if [ $build -eq 1 ]; then
 	  --input results/template_StudyDesigns.owl \
 	  --output results/merged.owl
 
+    robot merge --input results/extension.owl \
+	  --input results/template_StudyDesigns.owl \
+	  --output results/extension.owl
+
 
     ## Create Planning Processes
 
@@ -239,6 +263,10 @@ if [ $build -eq 1 ]; then
     robot merge --input results/merged.owl \
 	  --input results/template_Planning.owl \
 	  --output results/merged.owl
+
+    robot merge --input results/extension.owl \
+	  --input results/template_Planning.owl \
+	  --output results/extension.owl
 
 
     ## Create Investigation Processes
@@ -252,13 +280,17 @@ if [ $build -eq 1 ]; then
 	  --input results/template_Investigations.owl \
 	  --output results/merged.owl
 
+    robot merge --input results/extension.owl \
+	  --input results/template_Investigations.owl \
+	  --output results/extension.owl
+
     
     ## CLEANUP TEMPORARY FILES
     ## -----------------------
 
     if [ $cleanup -eq 1 ]; then
 	cd results
-	find . -not -regex "./merged.owl" -delete
+	find . -not -regex "./extension.owl" -delete
 	cd ..
     fi
 
@@ -267,14 +299,14 @@ if [ $build -eq 1 ]; then
     ## ----------------
 
     robot reason --reasoner ELK \
-	  --input results/merged.owl \
+	  --input results/extension.owl \
 	  -D results/debug.owl
 
     
     ## ANNOTATE OUTPUT
     ## ---------------
 
-    robot annotate --input results/merged.owl \
+    robot annotate --input results/extension.owl \
 	  --remove-annotations \
 	  --ontology-iri "http://w3id.org/rdfbones/ext/phaleron-ae/latest/phaleron-ae.owl" \
 	  --version-iri "http://w3id.org/rdfbones/ext/phaleron-ae/v0-1/phaleron-ae.owl" \
@@ -296,7 +328,7 @@ if [ $build -eq 1 ]; then
     ## -----------------------
 
     if [ $cleanup -eq 1 ]; then
-	rm results/merged.owl
+	rm results/extension.owl
     fi
 
 fi
