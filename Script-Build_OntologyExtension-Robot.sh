@@ -168,6 +168,22 @@ if [ $build -eq 1 ]; then
 	  --input results/template_DataSets.owl \
 	  --output results/extension.owl
 
+
+    ## Create roles
+
+    robot template --template template-roles.tsv \
+	  --prefixes prefixes.json \
+	  --input results/merged.owl \
+	  --output results/template_Roles.owl
+
+    robot merge --input results/merged.owl \
+	  --input results/template_Roles.owl \
+	  --output results/merged.owl
+
+    robot merge --input results/extension.owl \
+	  --input results/template_Roles.owl \
+	  --output results/extension.owl
+
     
     ## Create assays
 
