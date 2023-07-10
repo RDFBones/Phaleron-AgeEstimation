@@ -348,5 +348,11 @@ if [ -f "$FILE" ]; then
     rm -r dependencies/RDFBones-O/robot/results/
 fi
 
+FILE=dependencies/SucheyBrooksPubicAge/results/
+
+if [ -f "$FILE" ]; then
+    rm -r dependencies/SucheyBrooksPubicAge/results/
+fi
+
 ## Add cleanup commands for additional dependencies as exemplified above for the RDFBones core ontology.
 ## *****************************************************************************************************
