@@ -116,7 +116,7 @@ if [ $build -eq 1 ]; then
 	  --input results/dependencies.owl \
 	  --output results/template_CategoryLabels.owl
 
-    robot merge --input dependencies/RDFBones-O/robot/results/rdfbones.owl \
+    robot merge --input results/dependencies.owl \
 	  --input results/template_CategoryLabels.owl \
 	  --output results/merged.owl
 
