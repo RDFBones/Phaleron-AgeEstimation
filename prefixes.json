@@ -273,6 +273,7 @@
     "ZP" : "http://purl.obolibrary.org/obo/ZP_",
     "rdfbones" : "http://w3id.org/rdfbones/core#",
     "sb" : "http://w3id.org/rdfbones/ext/sb/",
+    "phaleron-se" : "http://w3id.org/rdfbones/ext/phaleron-se/",
     "phaleron-ae" : "http://w3id.org/rdfbones/ext/phaleron-ae/"
   }
 }

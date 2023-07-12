@@ -4,3 +4,6 @@
 [submodule "dependencies/SucheyBrooksPubicAge"]
 	path = dependencies/SucheyBrooksPubicAge
 	url = git@github.com:RDFBones/SucheyBrooksPubicAge.git
+[submodule "dependencies/Phaleron-SexEstimation"]
+	path = dependencies/Phaleron-SexEstimation
+	url = git@github.com:RDFBones/Phaleron-SexEstimation.git

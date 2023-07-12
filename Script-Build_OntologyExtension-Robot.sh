@@ -99,6 +99,7 @@ if [ $build -eq 1 ]; then
 
     robot merge --input dependencies/RDFBones-O/robot/results/rdfbones.owl \
 	  --input dependencies/SucheyBrooksPubicAge/results/sb.owl \
+	  --input dependencies/Phaleron-SexEstimation/phaleron-se.owl \
 	  --output results/dependencies.owl
     
     ## Add additional dependencies files as input
