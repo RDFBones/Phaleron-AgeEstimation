@@ -7,3 +7,6 @@
 [submodule "dependencies/Phaleron-SexEstimation"]
 	path = dependencies/Phaleron-SexEstimation
 	url = git@github.com:RDFBones/Phaleron-SexEstimation.git
+[submodule "dependencies/Phaleron-SkeletalInventory"]
+	path = dependencies/Phaleron-SkeletalInventory
+	url = git@github.com:RDFBones/Phaleron-SkeletalInventory.git
