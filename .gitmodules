@@ -10,3 +10,6 @@
 [submodule "dependencies/Phaleron-SkeletalInventory"]
 	path = dependencies/Phaleron-SkeletalInventory
 	url = git@github.com:RDFBones/Phaleron-SkeletalInventory.git
+[submodule "dependencies/HartnettPubicAge"]
+	path = dependencies/HartnettPubicAge
+	url = https://github.com/RDFBones/HartnettPubicAge

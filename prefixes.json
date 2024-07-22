@@ -275,6 +275,7 @@
     "sb" : "http://w3id.org/rdfbones/ext/sb/",
     "phaleron-se" : "http://w3id.org/rdfbones/ext/phaleron-se/",
     "phaleron-si" : "http://w3id.org/rdfbones/ext/phaleron-si/",
-    "phaleron-ae" : "http://w3id.org/rdfbones/ext/phaleron-ae/"
+    "phaleron-ae" : "http://w3id.org/rdfbones/ext/phaleron-ae/",
+    "hpa" : "http://w3id.org/rdfbones/ext/hpa/"
   }
 }

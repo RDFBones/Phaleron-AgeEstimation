@@ -93,6 +93,14 @@ if [ $build -eq 1 ]; then
     ./Script-Build_OntologyExtension-Robot.sh -b -c -u
 
     cd ../../
+    
+    ## Build Hartnett pubic age ontology extension
+    
+    cd dependencies/HartnettPubicAge
+    
+    ./Script-Build_OntologyExtension-Robot.sh -b -c -u
+    
+    cd ../../
 
     
     ## Merge dependencies
@@ -101,6 +109,7 @@ if [ $build -eq 1 ]; then
 	  --input dependencies/SucheyBrooksPubicAge/results/sb.owl \
 	  --input dependencies/Phaleron-SexEstimation/phaleron-se.owl \
 	  --input dependencies/Phaleron-SkeletalInventory/phaleron-si.owl \
+	  --input dependencies/HartnettPubicAge/results/hpa.owl \
 	  --output results/dependencies.owl
     
     ## Add additional dependencies files as input
